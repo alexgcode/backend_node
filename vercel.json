@@ -1,14 +1,14 @@
 {
     "version": 2,
     "functions": {
-      "api/index.js": {
+      "app.js": {
         "runtime": "nodejs22.x"
       }
     },
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/api/index.js"
+        "dest": "/app.js"
       }
     ]
   }
