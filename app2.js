@@ -4,7 +4,12 @@ const mongoPlugin = require('@fastify/mongodb');
 
 // Conectar con MongoDB
 fastify.register(mongoPlugin, {
-  url: 'mongodb://127.0.0.1:27017/todo-list', // Cambia 'crud_db' por el nombre de tu base de datos
+  url: 'mongodb+srv://alexgf2703:B2iZWwVttkKqr2Fz@cluster0.r4lwh.mongodb.net/todo-list?retryWrites=true&w=majority&appName=Cluster0', //'mongodb://127.0.0.1:27017/todo-list', // Cambia 'crud_db' por el nombre de tu base de datos
+}).after(err => {
+  if (err) {
+    fastify.log.error('Error al conectar con MongoDB:', err);
+    process.exit(1);
+  }
 });
 
 // Registra el plugin de CORS
